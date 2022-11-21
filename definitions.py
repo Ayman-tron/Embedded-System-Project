@@ -3,3 +3,4 @@ TRIG_PIN_A = 16
 ECHO_PIN_A = 18
 inPin = 40
 inPin2 = 3
+ledPin = 11
