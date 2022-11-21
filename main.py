@@ -16,8 +16,11 @@ GPIO.setup(ECHO_PIN_A, GPIO.IN)
 
 #GPIO.setup(inPin, GPIO.IN)
 GPIO.setup(inPin2, GPIO.OUT)
+GPIO.setup(ledPin, GPIO.OUT)
 
 GPIO.output(inPin2, GPIO.LOW)
+
+
 def get_data():
     front = sensor.ultrasonic(TRIG_PIN_A, ECHO_PIN_A)
     return front
@@ -26,18 +29,23 @@ def get_data():
 def main():
     try:
         while True:
-            distance = get_data()
-            #readVal = GPIO.input(inPin)
-            
-            #time.sleep(0.5)
-            if distance <= 7:
-                GPIO.output(inPin2, GPIO.HIGH)
-                #print(readVal)
-        
-            else:
-                GPIO.output(inPin2, GPIO.LOW)
-                #print(readVal)
-           # print(distance)
+            GPIO.output(ledPin, True)
+            time.sleep(0.3)
+            GPIO.output(ledPin, False)
+            time.sleep(0.3)
+
+        #     distance = get_data()
+        #     #readVal = GPIO.input(inPin)
+
+        #     #time.sleep(0.5)
+        #     if distance <= 7:
+        #         GPIO.output(inPin2, GPIO.HIGH)
+        #         #print(readVal)
+
+        #     else:
+        #         GPIO.output(inPin2, GPIO.LOW)
+        #         #print(readVal)
+        #    # print(distance)
     except (KeyboardInterrupt, TypeError):
         GPIO.cleanup()
         print(" Cleanup successful")
