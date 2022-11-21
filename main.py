@@ -40,7 +40,7 @@ def main():
         #     #time.sleep(0.5)
              if distance <= 7:
                  GPIO.output(inPin2, GPIO.HIGH)
-                 print("Less")
+                 #print("Less")
                  #print(readVal)
 
              else:
